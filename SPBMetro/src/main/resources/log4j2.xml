@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+
+
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <LevelRangeFilter minLevel="fatal" maxLevel="fatal" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+
+        <File name="infoStationFile" fileName="logs/infoStation.log">
+
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="errorStationFile" fileName="logs/errorStation.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+
+        </File>
+
+        <File name="fatalSystemFile" fileName="logs/exception.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+
+        </File>
+    </appenders>
+
+    <loggers>
+        <Logger name="infoStation" additivity="false" level="info" >
+            <AppenderRef ref="infoStationFile"/>
+        </Logger>
+
+        <Logger name="stationError" additivity="false" level="error" >
+            <AppenderRef ref="errorStationFile"/>
+        </Logger>
+
+        <Logger name="fatalSystemError" additivity="false" level="fatal" >
+            <AppenderRef ref="fatalSystemFile"/>
+        </Logger>
+
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </loggers>
+
+
+
+
+
+
+
+</configuration>
